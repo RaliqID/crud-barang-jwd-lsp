@@ -1,21 +1,30 @@
-/* assets/css/style.css - Desain Modern Enterprise & Antarmuka Profesional */
+/* assets/css/style.css - Tema Luxury / Executive Premium (Obsidian Onyx & Warm Champagne Gold / Amber Bronze) */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --primary-light: #eff6ff;
-    --primary-border: #bfdbfe;
-    --bg-light: #f8fafc;
-    --surface-white: #ffffff;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    --border-focus: #3b82f6;
-    --ring-focus: rgba(37, 99, 235, 0.16);
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    /* Luxury Obsidian Onyx & Warm Champagne Gold Design Tokens */
+    --primary-color: #18181b;              /* Deep Obsidian Onyx */
+    --primary-hover: #27272a;              /* Obsidian Charcoal Hover */
+    --primary-active: #09090b;             /* Pure Obsidian Active */
+    --primary-light: #f4f4f5;              /* Light Platinum Tint */
+    --primary-border: #27272a;             /* Subtle Dark Trim */
+
+    --gold-accent: #b45309;                /* Warm Champagne Gold / Amber Bronze */
+    --gold-accent-hover: #92400e;          /* Rich Amber Hover */
+    --gold-accent-light: #fef3c7;          /* Soft Champagne Surface */
+    --gold-accent-border: #fde68a;         /* Soft Gold Border */
+
+    --bg-light: #fafafa;                   /* Warm Pearl / Light Slate Background */
+    --surface-white: #ffffff;              /* Crisp White Surface */
+    --text-dark: #09090b;                  /* Deep Obsidian Heading & Text */
+    --text-muted: #52525b;                 /* Refined Neutral Muted (WCAG AA >= 4.5:1) */
+    --border-color: #e4e4e7;               /* Subtle Platinum Border */
+    --border-focus: #b45309;               /* Warm Champagne Gold Focus Ring */
+    --ring-focus: rgba(180, 83, 9, 0.20);  /* Soft Amber Aura */
+
+    --card-shadow: 0 1px 3px 0 rgba(24, 24, 27, 0.04), 0 1px 2px -1px rgba(24, 24, 27, 0.03);
+    --card-shadow-hover: 0 10px 15px -3px rgba(24, 24, 27, 0.06), 0 4px 6px -4px rgba(24, 24, 27, 0.03);
 }
 
 body {
@@ -33,6 +42,32 @@ body {
     flex: 1 0 auto;
 }
 
+/* Hyperlinks Bertema Warm Gold / Amber Bronze */
+a {
+    color: var(--gold-accent);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+    color: var(--gold-accent-hover);
+}
+
+/* Bootstrap Text & Background Utility Overrides (Anti-Blue Standard) */
+.text-primary {
+    color: var(--gold-accent) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.bg-primary-subtle {
+    background-color: var(--gold-accent-light) !important;
+    color: var(--gold-accent) !important;
+}
+
 /* Tabular Numbers untuk Data Finansial & Angka */
 .tabular-nums {
     font-variant-numeric: tabular-nums;
@@ -43,64 +78,71 @@ body {
     font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
 }
 
-/* Navigasi Modern */
+/* Navigasi Modern Executive */
 .navbar-custom {
     background-color: var(--surface-white);
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(24, 24, 27, 0.03);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
 }
 
 .navbar-brand {
     font-weight: 700;
-    color: var(--primary-color) !important;
-    letter-spacing: 0.75px;
+    color: #09090b !important;
+    letter-spacing: 0.85px;
     font-size: 1.15rem;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
 }
 
 .navbar-brand svg {
-    color: var(--primary-color);
+    color: var(--gold-accent); /* Aksen Ikon Emas / Champagne Bronze */
 }
 
 .nav-link {
     font-weight: 500;
     font-size: 0.925rem;
-    color: #475569 !important;
+    color: #52525b !important;
     padding: 0.45rem 0.85rem !important;
     border-radius: 6px;
     transition: all 0.15s ease-in-out;
 }
 
 .nav-link:hover {
-    color: var(--primary-color) !important;
-    background-color: #f1f5f9;
+    color: var(--gold-accent) !important;
+    background-color: #f4f4f5;
 }
 
 .nav-link.active {
-    color: var(--primary-color) !important;
-    background-color: var(--primary-light);
+    color: #18181b !important;
+    background-color: #f4f4f5;
     font-weight: 600;
+    border-bottom: 2px solid var(--gold-accent);
+    border-radius: 6px 6px 0 0;
 }
 
 .user-identity-badge {
-    background-color: #f1f5f9;
+    background-color: #fafafa;
     border: 1px solid var(--border-color);
-    padding: 0.35rem 0.75rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 9999px;
     font-size: 0.825rem;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
+    box-shadow: 0 1px 2px rgba(24, 24, 27, 0.02);
+}
+
+.user-identity-badge svg {
+    color: var(--gold-accent);
 }
 
 /* Kartu & Container */
 .card {
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
     background-color: var(--surface-white);
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -110,28 +152,28 @@ body {
     background-color: var(--surface-white);
     border-bottom: 1px solid var(--border-color);
     font-weight: 600;
-    color: #1e293b;
+    color: #09090b;
     padding: 1rem 1.25rem;
-    border-top-left-radius: 9px !important;
-    border-top-right-radius: 9px !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
 }
 
-/* Kartu Statistik Dashboard Berkelas */
+/* Kartu Statistik Dashboard Eksekutif */
 .stat-card {
     position: relative;
     overflow: hidden;
     background-color: var(--surface-white);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 1.25rem 1.35rem;
-    transition: all 0.2s ease-in-out;
+    padding: 1.35rem 1.45rem;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .stat-card:hover {
     box-shadow: var(--card-shadow-hover);
-    border-color: #cbd5e1;
-    transform: translateY(-1px);
+    border-color: #d4d4d8;
+    transform: translateY(-2px);
 }
 
 .stat-card::before {
@@ -144,16 +186,43 @@ body {
     background-color: var(--primary-color);
 }
 
-.stat-card.stat-primary::before {
-    background-color: #2563eb;
+/* 1. Jenis Barang: Platinum / Deep Obsidian */
+.stat-card.stat-primary::before,
+.stat-card.stat-obsidian::before {
+    background-color: #18181b;
 }
 
+.stat-primary .stat-icon-wrapper,
+.stat-obsidian .stat-icon-wrapper {
+    background-color: #f4f4f5;
+    color: #18181b;
+    border: 1px solid #e4e4e7;
+}
+
+/* 2. Total Stok: Deep Emerald Jade */
 .stat-card.stat-emerald::before {
-    background-color: #059669;
+    background-color: #047857;
 }
 
-.stat-card.stat-violet::before {
-    background-color: #7c3aed;
+.stat-emerald .stat-icon-wrapper {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+/* 3. Nilai Aset: Warm Champagne Gold / Bronze */
+.stat-card.stat-violet::before,
+.stat-card.stat-gold::before,
+.stat-card.stat-bronze::before {
+    background-color: #b45309;
+}
+
+.stat-violet .stat-icon-wrapper,
+.stat-gold .stat-icon-wrapper,
+.stat-bronze .stat-icon-wrapper {
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
 }
 
 .stat-icon-wrapper {
@@ -164,24 +233,6 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-}
-
-.stat-primary .stat-icon-wrapper {
-    background-color: #eff6ff;
-    color: #2563eb;
-    border: 1px solid #bfdbfe;
-}
-
-.stat-emerald .stat-icon-wrapper {
-    background-color: #ecfdf5;
-    color: #059669;
-    border: 1px solid #a7f3d0;
-}
-
-.stat-violet .stat-icon-wrapper {
-    background-color: #f5f3ff;
-    color: #7c3aed;
-    border: 1px solid #ddd6fe;
 }
 
 .stat-label {
@@ -205,69 +256,89 @@ body {
     color: var(--text-muted);
 }
 
-/* Badge Kategori Berwarna Spesifik */
+/* Badge Kategori Berwarna Spesifik (Executive Luxury Palette) */
 .badge-cat {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.35rem 0.7rem;
+    padding: 0.35rem 0.75rem;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.2;
     border-radius: 9999px;
-    letter-spacing: 0.015em;
+    letter-spacing: 0.02em;
     border: 1px solid transparent;
 }
 
+/* Elektronik: Warm Amber / Bronze Soft */
 .badge-cat-elektronik {
-    background-color: #eff6ff;
-    color: #1e40af;
-    border-color: #bfdbfe;
+    background-color: #fef3c7;
+    color: #92400e;
+    border-color: #fde68a;
 }
 
+/* Alat Tulis Kantor: Slate / Neutral Soft */
 .badge-cat-alat-tulis-kantor {
+    background-color: #f4f4f5;
+    color: #27272a;
+    border-color: #e4e4e7;
+}
+
+/* Pakaian: Terracotta / Warm Clay Soft */
+.badge-cat-pakaian {
+    background-color: #ffedd5;
+    color: #9a3412;
+    border-color: #fed7aa;
+}
+
+/* Makanan & Minuman: Emerald Sage Soft */
+.badge-cat-makanan-minuman {
     background-color: #ecfdf5;
     color: #065f46;
     border-color: #a7f3d0;
 }
 
-.badge-cat-pakaian {
-    background-color: #f5f3ff;
-    color: #5b21b6;
-    border-color: #ddd6fe;
-}
-
-.badge-cat-makanan-minuman {
-    background-color: #fffbeb;
-    color: #92400e;
-    border-color: #fde68a;
-}
-
+/* Perabotan: Warm Sand / Ochre Soft */
 .badge-cat-perabotan {
-    background-color: #f0fdfa;
-    color: #115e59;
-    border-color: #99f6e4;
+    background-color: #fefce8;
+    color: #854d0e;
+    border-color: #fef08a;
 }
 
+/* Lainnya: Subtle Charcoal Soft */
 .badge-cat-lainnya {
-    background-color: #f1f5f9;
-    color: #334155;
-    border-color: #cbd5e1;
+    background-color: #f4f4f5;
+    color: #3f3f46;
+    border-color: #d4d4d8;
+}
+
+/* Auth Header Icon Badge */
+.auth-icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+    box-shadow: 0 1px 3px rgba(180, 83, 9, 0.1);
 }
 
 /* Tabel Modern Enterprise */
 .table {
     margin-bottom: 0;
-    color: #334155;
+    color: #27272a;
 }
 
 .table th {
-    background-color: #f8fafc;
-    color: #475569;
+    background-color: #fafafa;
+    color: #52525b;
     font-size: 0.775rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     padding: 0.85rem 1rem;
     border-top: none;
     border-bottom: 1px solid var(--border-color);
@@ -277,7 +348,7 @@ body {
 .table td {
     padding: 0.85rem 1rem;
     vertical-align: middle;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f4f4f5;
     font-size: 0.9rem;
 }
 
@@ -286,28 +357,28 @@ body {
 }
 
 .table-hover > tbody > tr:hover {
-    background-color: #f8fafc;
+    background-color: #fafafa;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: #fafbfd;
+    background-color: #fcfbf9;
 }
 
 /* Form & Input Controls */
 .form-label {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #334155;
+    color: #27272a;
     margin-bottom: 0.4rem;
 }
 
 .form-control,
 .form-select {
-    border: 1px solid #cbd5e1;
+    border: 1px solid #d4d4d8;
     border-radius: 8px;
     padding: 0.55rem 0.85rem;
     font-size: 0.925rem;
-    color: #0f172a;
+    color: #09090b;
     background-color: var(--surface-white);
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -320,7 +391,7 @@ body {
 }
 
 .form-control::placeholder {
-    color: #94a3b8;
+    color: #a1a1aa;
 }
 
 .form-text {
@@ -329,7 +400,7 @@ body {
     margin-top: 0.35rem;
 }
 
-/* Tombol Elegan */
+/* Tombol Elegan (Deep Obsidian Onyx & Aksen Champagne Gold) */
 .btn {
     font-weight: 500;
     font-size: 0.875rem;
@@ -342,43 +413,59 @@ body {
     transition: all 0.15s ease-in-out;
 }
 
+/* Tombol Utama: Deep Charcoal Onyx dengan border champagne gold / bronze halus */
 .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    box-shadow: 0 1px 2px 0 rgba(37, 99, 235, 0.2);
+    background-color: #18181b !important;
+    border: 1px solid #c28833 !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(24, 24, 27, 0.25);
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: var(--primary-hover);
-    border-color: var(--primary-hover);
-    box-shadow: 0 2px 4px 0 rgba(37, 99, 235, 0.25);
+    background-color: #27272a !important;
+    border-color: #d97706 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px 0 rgba(24, 24, 27, 0.2), 0 0 0 3px rgba(180, 83, 9, 0.15) !important;
 }
 
+.btn-primary:active {
+    background-color: #09090b !important;
+    border-color: #b45309 !important;
+}
+
+/* Tombol Outline Primary: Aksen Amber Bronze Elegan */
 .btn-outline-primary {
-    color: var(--primary-color);
-    border-color: #bfdbfe;
-    background-color: transparent;
+    color: #92400e !important;
+    border-color: #d97706 !important;
+    background-color: transparent !important;
+    font-weight: 500;
 }
 
-.btn-outline-primary:hover {
-    background-color: var(--primary-light);
-    color: var(--primary-hover);
-    border-color: var(--primary-color);
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: #b45309 !important;
+    color: #ffffff !important;
+    border-color: #b45309 !important;
+    box-shadow: 0 2px 4px 0 rgba(180, 83, 9, 0.2);
 }
 
+/* Tombol Outline Secondary: Platinum Neutral */
 .btn-outline-secondary {
-    color: #475569;
-    border-color: #cbd5e1;
+    color: #3f3f46;
+    border-color: #d4d4d8;
     background-color: transparent;
 }
 
 .btn-outline-secondary:hover {
-    background-color: #f1f5f9;
-    color: #1e293b;
-    border-color: #94a3b8;
+    background-color: #f4f4f5;
+    color: #18181b;
+    border-color: #a1a1aa;
 }
 
+/* Tombol Outline Danger: Muted Carmine Red */
 .btn-outline-danger {
     color: #dc2626;
     border-color: #fecaca;
@@ -393,7 +480,7 @@ body {
 
 /* Alert Styling */
 .alert {
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid transparent;
     font-size: 0.9rem;
     padding: 0.85rem 1.15rem;
@@ -411,6 +498,13 @@ body {
     color: #991b1b;
 }
 
+/* Badge Neutral Utility */
+.badge.bg-light {
+    background-color: #f4f4f5 !important;
+    color: #52525b !important;
+    border-color: #e4e4e7 !important;
+}
+
 /* Footer Minimalis Bersih */
 footer {
     flex-shrink: 0;
@@ -419,6 +513,11 @@ footer {
     padding: 1.25rem 0;
     color: var(--text-muted);
     font-size: 0.85rem;
+}
+
+footer span {
+    color: #71717a;
+    letter-spacing: 0.01em;
 }
 
 /* Touch Target Minimal 44px pada Layar Mobile (< 768px) */
@@ -454,4 +553,6 @@ footer {
     border-width: 0.15em;
     vertical-align: -0.125em;
     margin-right: 0.35rem;
+    border-color: currentColor;
+    border-right-color: transparent;
 }

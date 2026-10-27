@@ -36,7 +36,7 @@ require_once __DIR__ . '/templates/header.php';
 <!-- Ringkasan Nilai Laporan -->
 <div class="row g-3 mb-4">
     <div class="col-md-4">
-        <div class="card stat-card stat-primary h-100">
+        <div class="card stat-card stat-obsidian h-100">
             <div class="d-flex align-items-start justify-content-between mb-2">
                 <div class="stat-label">Total Jenis Barang</div>
                 <div class="stat-icon-wrapper">
@@ -68,7 +68,7 @@ require_once __DIR__ . '/templates/header.php';
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card stat-card stat-violet h-100">
+        <div class="card stat-card stat-gold h-100">
             <div class="d-flex align-items-start justify-content-between mb-2">
                 <div class="stat-label">Total Nilai Aset</div>
                 <div class="stat-icon-wrapper">

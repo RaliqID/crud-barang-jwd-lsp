@@ -60,7 +60,7 @@ require_once __DIR__ . '/templates/header.php';
 
 <?php if ($search !== ''): ?>
     <div class="mb-3 text-muted small d-flex align-items-center gap-1">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <span>Menampilkan hasil pencarian untuk kata kunci: "<strong><?= e($search) ?></strong>" (Ditemukan <?= count($barang_list) ?> data)</span>
     </div>
 <?php endif; ?>
@@ -87,13 +87,13 @@ require_once __DIR__ . '/templates/header.php';
                             <td colspan="7" class="text-center py-5 text-muted">
                                 <?php if ($search !== ''): ?>
                                     <div class="mb-2">
-                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                     </div>
                                     <p class="mb-2">Data barang dengan kata kunci "<strong><?= e($search) ?></strong>" tidak ditemukan.</p>
                                     <a href="barang.php" class="btn btn-outline-secondary btn-sm">Reset Pencarian</a>
                                 <?php else: ?>
                                     <div class="mb-2">
-                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                                     </div>
                                     <p class="mb-2">Belum ada data barang. Silakan <a href="tambah.php">tambah barang baru</a>.</p>
                                 <?php endif; ?>

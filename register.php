@@ -88,7 +88,7 @@ require_once __DIR__ . '/templates/header.php';
         <div class="card my-3 shadow-sm border">
             <div class="card-header text-center py-3 bg-white">
                 <div class="mb-2">
-                    <span class="d-inline-flex p-2 rounded-circle bg-primary-subtle text-primary">
+                    <span class="auth-icon-badge">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="8.5" cy="7" r="4"></circle>

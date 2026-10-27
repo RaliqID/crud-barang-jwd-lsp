@@ -66,7 +66,7 @@ if (!function_exists('badge_kategori_class')) {
                     <ul class="navbar-nav ms-auto align-items-lg-center">
                         <li class="nav-item me-lg-3 my-2 my-lg-0">
                             <div class="user-identity-badge">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>

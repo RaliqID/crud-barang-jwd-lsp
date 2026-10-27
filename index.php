@@ -40,7 +40,7 @@ require_once __DIR__ . '/templates/header.php';
 <!-- Kartu Statistik Utama -->
 <div class="row g-3 mb-4">
     <div class="col-sm-6 col-lg-4">
-        <div class="card stat-card stat-primary h-100">
+        <div class="card stat-card stat-obsidian h-100">
             <div class="d-flex align-items-start justify-content-between mb-2">
                 <div class="stat-label">Jumlah Jenis Barang</div>
                 <div class="stat-icon-wrapper">
@@ -72,7 +72,7 @@ require_once __DIR__ . '/templates/header.php';
         </div>
     </div>
     <div class="col-sm-12 col-lg-4">
-        <div class="card stat-card stat-violet h-100">
+        <div class="card stat-card stat-gold h-100">
             <div class="d-flex align-items-start justify-content-between mb-2">
                 <div class="stat-label">Total Nilai Inventaris</div>
                 <div class="stat-icon-wrapper">
@@ -114,7 +114,7 @@ require_once __DIR__ . '/templates/header.php';
                         <tr>
                             <td colspan="5" class="text-center py-5 text-muted">
                                 <div class="mb-2">
-                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                                     </svg>
