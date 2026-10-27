@@ -38,6 +38,9 @@ crud_barang/
 │       └── style.css          # Lembar gaya kustom responsif
 ├── config/
 │   └── database.php           # Konfigurasi koneksi PDO & error handling
+├── database/                  # Berkas skrip SQL siap impor saat dipindah ke perangkat lain
+│   ├── database.sql           # Skrip DDL struktur tabel (users & barang)
+│   └── db_inventaris_barang.sql # Skrip DDL alternatif
 ├── fpdf/                      # Pustaka FPDF v1.86 pihak ketiga
 │   ├── font/
 │   └── fpdf.php
@@ -86,10 +89,11 @@ Basis data dapat diimpor menggunakan phpMyAdmin atau antarmuka baris perintah (C
 3. Buat database baru dengan nama `db_inventaris_barang`, pilih collation `utf8mb4_unicode_ci`, lalu klik **Create**.
 4. Pilih database `db_inventaris_barang` yang baru dibuat di panel kiri.
 5. Klik tab **Import** pada menu atas.
-6. Klik tombol **Choose File**, arahkan ke file:
+6. Klik tombol **Choose File**, arahkan ke file di dalam folder `database/`:
    ```text
-   C:\xampp\htdocs\crud_barang\database.sql
+   C:\xampp\htdocs\crud_barang\database\database.sql
    ```
+   *(atau `database.sql` di root direktori).*
 7. Gulir ke bawah dan klik tombol **Import** (Kirim). Pastikan muncul konfirmasi bahwa query berhasil dieksekusi.
 
 #### Opsi B: Melalui Terminal / MySQL Command Prompt
