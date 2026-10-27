@@ -490,6 +490,42 @@ assert_test(str_contains(strtolower($contentType), 'application/pdf'), "Content-
 echo "\n";
 
 // -----------------------------------------------------------------
+// TEST 9b: Berkas Skema Database Siap Import (Folder database/ & database.sql)
+// -----------------------------------------------------------------
+echo "--- [TEST 9b] Validasi Berkas Database Siap Import (Folder database/ & File SQL) ---\n";
+$rootDir = realpath(__DIR__ . '/..');
+$dbDir = $rootDir . DIRECTORY_SEPARATOR . 'database';
+$rootSql = $rootDir . DIRECTORY_SEPARATOR . 'database.sql';
+$dbFolderSql = $dbDir . DIRECTORY_SEPARATOR . 'database.sql';
+$dbFolderInventarisSql = $dbDir . DIRECTORY_SEPARATOR . 'db_inventaris_barang.sql';
+
+assert_test(is_dir($dbDir), "Folder 'database/' ada dan dapat diakses");
+assert_test(file_exists($rootSql) && is_readable($rootSql), "Berkas fisik root 'database.sql' tetap terjaga dan terbaca");
+assert_test(file_exists($dbFolderSql) && is_readable($dbFolderSql), "Berkas 'database/database.sql' tersedia untuk asesor/import");
+assert_test(file_exists($dbFolderInventarisSql) && is_readable($dbFolderInventarisSql), "Berkas 'database/db_inventaris_barang.sql' tersedia untuk asesor/import");
+
+$sqlContentRoot = (string)file_get_contents($rootSql);
+$sqlContentDb = (string)file_get_contents($dbFolderSql);
+assert_test(
+    str_contains($sqlContentDb, 'CREATE DATABASE') && str_contains($sqlContentDb, 'users') && str_contains($sqlContentDb, 'barang'),
+    "Skema database di folder 'database/' valid: mendefinisikan database, tabel users, dan tabel barang"
+);
+
+// Pastikan antarmuka UI bersih dari tombol/link unduh database sesuai instruksi koreksi
+$resIndex = http_request('GET', "{$baseUrl}/index.php");
+assert_test(
+    !str_contains($resIndex['body'], 'unduh_database.php'),
+    "Antarmuka Dashboard & Navbar bersih dari tombol/link unduh database"
+);
+
+$resLaporan = http_request('GET', "{$baseUrl}/laporan.php");
+assert_test(
+    !str_contains($resLaporan['body'], 'unduh_database.php'),
+    "Halaman Laporan bersih dari tombol/link unduh database"
+);
+echo "\n";
+
+// -----------------------------------------------------------------
 // TEST 10: Hapus Data Barang (CRUD Delete)
 // -----------------------------------------------------------------
 echo "--- [TEST 10] Hapus Barang (Proteksi Akses GET, Proteksi CSRF, Eksekusi POST Valid) ---\n";

@@ -62,9 +62,6 @@ if (!function_exists('badge_kategori_class')) {
                         <li class="nav-item">
                             <a class="nav-link <?= $current_page === 'laporan.php' ? 'active' : '' ?>" href="laporan.php">Laporan</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?= $current_page === 'unduh_database.php' ? 'active' : '' ?>" href="unduh_database.php" title="Unduh Backup Database SQL">Backup DB</a>
-                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto align-items-lg-center">
                         <li class="nav-item me-lg-3 my-2 my-lg-0">
