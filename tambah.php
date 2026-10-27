@@ -56,16 +56,19 @@ require_once __DIR__ . '/templates/header.php';
     <div class="col-md-8 col-lg-7">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
-                <h4 class="mb-1">Tambah Barang</h4>
+                <h4 class="mb-1 fw-bold text-dark">Tambah Barang</h4>
                 <p class="text-muted small mb-0">Isi seluruh informasi barang dengan lengkap dan benar</p>
             </div>
-            <a href="barang.php" class="btn btn-outline-secondary btn-sm">&larr; Kembali</a>
+            <a href="barang.php" class="btn btn-outline-secondary btn-sm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>&larr; Kembali</span>
+            </a>
         </div>
 
-        <div class="card">
+        <div class="card shadow-sm border">
             <div class="card-body p-4">
                 <?php if (isset($errors['general'])): ?>
-                    <div class="alert alert-danger py-2 small" role="alert">
+                    <div class="alert alert-danger py-2 small mb-3" role="alert">
                         <?= e($errors['general']) ?>
                     </div>
                 <?php endif; ?>
@@ -76,7 +79,7 @@ require_once __DIR__ . '/templates/header.php';
                     <div class="mb-3">
                         <label for="kode_barang" class="form-label">Kode Barang <span class="text-danger">*</span></label>
                         <input type="text"
-                               class="form-control <?= isset($errors['kode_barang']) ? 'is-invalid' : '' ?>"
+                               class="form-control font-monospace <?= isset($errors['kode_barang']) ? 'is-invalid' : '' ?>"
                                id="kode_barang"
                                name="kode_barang"
                                placeholder="Contoh: BRG-001"
@@ -85,7 +88,7 @@ require_once __DIR__ . '/templates/header.php';
                         <?php if (isset($errors['kode_barang'])): ?>
                             <div class="invalid-feedback"><?= e($errors['kode_barang']) ?></div>
                         <?php else: ?>
-                            <div class="form-text">Kode unik untuk setiap barang.</div>
+                            <div class="form-text">Kode unik untuk setiap barang inventaris (huruf kapital, angka, tanda strip).</div>
                         <?php endif; ?>
                     </div>
 
@@ -127,7 +130,7 @@ require_once __DIR__ . '/templates/header.php';
                             <input type="number"
                                    step="any"
                                    min="0"
-                                   class="form-control <?= isset($errors['harga']) ? 'is-invalid' : '' ?>"
+                                   class="form-control tabular-nums <?= isset($errors['harga']) ? 'is-invalid' : '' ?>"
                                    id="harga"
                                    name="harga"
                                    placeholder="Contoh: 55000"
@@ -143,7 +146,7 @@ require_once __DIR__ . '/templates/header.php';
                             <input type="number"
                                    step="1"
                                    min="0"
-                                   class="form-control <?= isset($errors['stok']) ? 'is-invalid' : '' ?>"
+                                   class="form-control tabular-nums <?= isset($errors['stok']) ? 'is-invalid' : '' ?>"
                                    id="stok"
                                    name="stok"
                                    placeholder="Contoh: 25"
@@ -155,9 +158,12 @@ require_once __DIR__ . '/templates/header.php';
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-end gap-2 mt-3">
+                    <div class="d-flex justify-content-end gap-2 mt-4 pt-2 border-top">
                         <a href="barang.php" class="btn btn-outline-secondary">Batal</a>
-                        <button type="submit" class="btn btn-primary px-4">Simpan Barang</button>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                            <span>Simpan Barang</span>
+                        </button>
                     </div>
                 </form>
             </div>

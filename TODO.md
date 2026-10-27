@@ -1,20 +1,18 @@
 # TODO — Proyek CRUD Data Barang LSP JWD · update: 2026-10-27 oleh orchestrator
 
 ## Goal
-Aplikasi CRUD data barang standar LSP JWD tuntas, lolos audit arsitektur, UI responsif anti-slop, zero security defect, lulus uji E2E live.
+Tingkatkan desain UI menjadi modern, menarik, dan berkelas profesional, serta siapkan folder khusus `database/` di dalam root project berisi file `.sql` siap import saat dipindah ke laptop lain / penguji LSP.
 
 ## Task Board
 | ID | Task | Owner Agent | Status | Bukti / Verifikasi |
 |---|---|---|---|---|
-| T1 | Frame & Arsitektur Audit | @oracle | ✅ Done | Laporan audit: modularisasi, PDO try-catch, PRG CSRF, casting desimal |
-| T2 | UI/UX & Responsive 375px/1440px Audit | @designer | ✅ Done | Laporan audit: touch target <44px, nav collapse spacing, raw die CSRF, double submit |
-| T3 | Security & OWASP Audit (CSRF, XSS, Session) | @security-reviewer | ✅ Done | Laporan audit: hardened session cookies, POST logout, data-nama delete dialog |
-| T4 | Perbaikan Kode Hasil Temuan Spesialis | @fixer | ✅ Done | 11/11 butir perbaikan tuntas & lint lolos (php -l 42 files pass 0 error) |
-| T5 | E2E Browser & Live HTTP Verification | @qa-verifier | ✅ Done | 60/60 assertion pass (exit code 0), zero console error, responsive 375px-1440px |
-| T6 | Paket Berkas Uji LSP & Panduan Asesor | @doc-writer | ✅ Done | README.md tuntas (240 baris): standar LSP FR.IA.02, skenario tugas 1 & 2, matriks KUK, zero creds |
+| T7 | Desain UI/UX Menarik & Modern (CSS, Cards, Navbar, Badges) | @designer | ✅ Done | assets/css/style.css, index.php, barang.php, laporan.php, tambah.php, edit.php, login.php, register.php ter-redesign; 69/69 live E2E assertions pass exit 0 |
+| T8 | Fitur Download & Export DB SQL (unduh_database.php + folder database/) | @fixer | ✅ Done | unduh_database.php (HTTP 200, schema+data actual dump), database/db_inventaris_barang.sql, root database.sql terjaga, 69/69 live E2E assertions pass |
+| T9 | Verifikasi Browser Real (Playwright 375px/768px/1440px) | @qa-verifier | ⏳ Queued | Menunggu T7 & T8 selesai |
+| T10| Sinkronisasi Git & Push ke GitHub | orchestrator | ⏳ Queued | Menunggu T9 selesai |
 
 ## Blokir & Risiko
-- Nihil blokir. Semua 6 lane selesai dengan bukti terverifikasi.
+- T7 dan T8 berjalan paralel (T7 fokus styling/UI template, T8 fokus backend export database).
 
 ## Ringkasan
-Progress 6/6 done (100%) · Lane aktif: 0 · Blocked: 0 · Status: Production Ready LSP JWD
+Progress 0/4 done · Lane aktif: 2 (T7, T8) · Blocked: 0

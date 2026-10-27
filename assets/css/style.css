@@ -1,103 +1,424 @@
-/* assets/css/style.css - Tampilan Bersih & Minimalis Sesuai Standar LSP */
+/* assets/css/style.css - Desain Modern Enterprise & Antarmuka Profesional */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-    --primary-color: #1d4ed8;
-    --primary-hover: #1e40af;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --primary-border: #bfdbfe;
     --bg-light: #f8fafc;
+    --surface-white: #ffffff;
     --text-dark: #0f172a;
     --text-muted: #64748b;
     --border-color: #e2e8f0;
+    --border-focus: #3b82f6;
+    --ring-focus: rgba(37, 99, 235, 0.16);
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
 }
 
 body {
     background-color: var(--bg-light);
     color: var(--text-dark);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .main-content {
     flex: 1 0 auto;
 }
 
+/* Tabular Numbers untuk Data Finansial & Angka */
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}
+
+.font-monospace {
+    font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+/* Navigasi Modern */
 .navbar-custom {
-    background-color: #ffffff;
+    background-color: var(--surface-white);
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
 .navbar-brand {
     font-weight: 700;
     color: var(--primary-color) !important;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.75px;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-brand svg {
+    color: var(--primary-color);
 }
 
 .nav-link {
     font-weight: 500;
+    font-size: 0.925rem;
     color: #475569 !important;
+    padding: 0.45rem 0.85rem !important;
+    border-radius: 6px;
+    transition: all 0.15s ease-in-out;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: #f1f5f9;
+}
+
 .nav-link.active {
     color: var(--primary-color) !important;
+    background-color: var(--primary-light);
+    font-weight: 600;
 }
 
+.user-identity-badge {
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.825rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Kartu & Container */
 .card {
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    background-color: var(--surface-white);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card-header {
-    background-color: #ffffff;
+    background-color: var(--surface-white);
     border-bottom: 1px solid var(--border-color);
     font-weight: 600;
+    color: #1e293b;
+    padding: 1rem 1.25rem;
+    border-top-left-radius: 9px !important;
+    border-top-right-radius: 9px !important;
+}
+
+/* Kartu Statistik Dashboard Berkelas */
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--surface-white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    padding: 1.25rem 1.35rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.stat-card.stat-primary::before {
+    background-color: #2563eb;
+}
+
+.stat-card.stat-emerald::before {
+    background-color: #059669;
+}
+
+.stat-card.stat-violet::before {
+    background-color: #7c3aed;
+}
+
+.stat-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-primary .stat-icon-wrapper {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.stat-emerald .stat-icon-wrapper {
+    background-color: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+.stat-violet .stat-icon-wrapper {
+    background-color: #f5f3ff;
+    color: #7c3aed;
+    border: 1px solid #ddd6fe;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.stat-desc {
+    font-size: 0.815rem;
+    color: var(--text-muted);
+}
+
+/* Badge Kategori Berwarna Spesifik */
+.badge-cat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 9999px;
+    letter-spacing: 0.015em;
+    border: 1px solid transparent;
+}
+
+.badge-cat-elektronik {
+    background-color: #eff6ff;
+    color: #1e40af;
+    border-color: #bfdbfe;
+}
+
+.badge-cat-alat-tulis-kantor {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-color: #a7f3d0;
+}
+
+.badge-cat-pakaian {
+    background-color: #f5f3ff;
+    color: #5b21b6;
+    border-color: #ddd6fe;
+}
+
+.badge-cat-makanan-minuman {
+    background-color: #fffbeb;
+    color: #92400e;
+    border-color: #fde68a;
+}
+
+.badge-cat-perabotan {
+    background-color: #f0fdfa;
+    color: #115e59;
+    border-color: #99f6e4;
+}
+
+.badge-cat-lainnya {
+    background-color: #f1f5f9;
+    color: #334155;
+    border-color: #cbd5e1;
+}
+
+/* Tabel Modern Enterprise */
+.table {
+    margin-bottom: 0;
+    color: #334155;
+}
+
+.table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 0.775rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 1rem;
+    border-top: none;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.table td {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+}
+
+.table-hover > tbody > tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #f8fafc;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #fafbfd;
+}
+
+/* Form & Input Controls */
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.925rem;
+    color: #0f172a;
+    background-color: var(--surface-white);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px var(--ring-focus);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+}
+
+.form-text {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+}
+
+/* Tombol Elegan */
+.btn {
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.15s ease-in-out;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    box-shadow: 0 1px 2px 0 rgba(37, 99, 235, 0.2);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: var(--primary-hover);
     border-color: var(--primary-hover);
+    box-shadow: 0 2px 4px 0 rgba(37, 99, 235, 0.25);
 }
 
-.table th {
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: #bfdbfe;
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-hover);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-secondary {
+    color: #475569;
+    border-color: #cbd5e1;
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
     background-color: #f1f5f9;
-    color: #334155;
-    font-weight: 600;
-    border-top: none;
+    color: #1e293b;
+    border-color: #94a3b8;
 }
 
-.stat-card {
-    border-left: 4px solid var(--primary-color);
+.btn-outline-danger {
+    color: #dc2626;
+    border-color: #fecaca;
+    background-color: transparent;
 }
 
-.stat-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
+.btn-outline-danger:hover {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border-color: #dc2626;
 }
 
-.stat-value {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--text-dark);
+/* Alert Styling */
+.alert {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.15rem;
 }
 
+.alert-success {
+    background-color: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #065f46;
+}
+
+.alert-danger {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+/* Footer Minimalis Bersih */
 footer {
     flex-shrink: 0;
-    background-color: #ffffff;
+    background-color: var(--surface-white);
     border-top: 1px solid var(--border-color);
     padding: 1.25rem 0;
     color: var(--text-muted);
-    font-size: 0.875rem;
+    font-size: 0.85rem;
 }
 
 /* Touch Target Minimal 44px pada Layar Mobile (< 768px) */
@@ -111,6 +432,10 @@ footer {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .table td, .table th {
+        padding: 0.75rem 0.65rem;
     }
 }
 

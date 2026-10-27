@@ -3,7 +3,7 @@
 
 <footer>
     <div class="container text-center">
-        <span>Sistem Inventaris Data Barang &copy; <?= date('Y') ?> - Uji Kompetensi Junior Web Developer</span>
+        <span class="text-muted">Sistem Inventaris Data Barang &copy; <?= date('Y') ?> &bull; Standar Sertifikasi Kompetensi Junior Web Developer</span>
     </div>
 </footer>
 
