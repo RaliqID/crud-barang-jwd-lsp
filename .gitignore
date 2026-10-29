@@ -16,5 +16,7 @@ Thumbs.db
 *.log
 error_log
 
-# Playwright temporary runs
+# Internal development notes & tests
+TODO.md
+tests/
 .playwright-mcp/

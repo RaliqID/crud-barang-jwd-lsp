@@ -35,81 +35,75 @@ Fitur utama mencakup autentikasi pengguna, dasbor metrik analitik aset, pengelol
 crud_barang/
 ├── assets/
 │   └── css/
-│       └── style.css          # Lembar gaya kustom responsif
+│       └── style.css              # Custom styling responsif
 ├── config/
-│   └── database.php           # Konfigurasi koneksi PDO & error handling
-├── database/                  # Berkas skrip SQL siap impor saat dipindah ke perangkat lain
-│   ├── database.sql           # Skrip DDL struktur tabel (users & barang)
-│   └── db_inventaris_barang.sql # Skrip DDL alternatif
-├── fpdf/                      # Pustaka FPDF v1.86 pihak ketiga
-│   ├── font/
-│   └── fpdf.php
+│   └── database.php               # Konfigurasi koneksi database PDO
+├── database/
+│   └── db_inventaris_barang.sql   # Skrip DDL database & tabel (siap import 1x)
+├── fpdf/
+│   ├── font/                      # Font bawaan FPDF
+│   ├── fpdf.php                   # Core library FPDF v1.86
+│   └── license.txt
 ├── includes/
-│   ├── auth.php               # Manajemen sesi, autentikasi, & proteksi CSRF
-│   ├── barang.php             # Lapisan akses data (DAO) CRUD barang via PDO
-│   └── functions.php          # Utilitas validasi, kalkulasi, format Rupiah, & XSS filter
+│   ├── auth.php                   # Pengelolaan sesi, login, & proteksi CSRF
+│   ├── barang.php                 # Operasi CRUD barang via PDO prepared statement
+│   └── functions.php              # Fungsi validasi form, format Rupiah, & helper
 ├── templates/
-│   ├── header.php             # Template navigasi atas & header responsif
-│   └── footer.php             # Template kaki halaman, modal dialog, & skrip pencegah double-submit
-├── barang.php                 # Tampilan tabel master data barang & filter pencarian
-├── cetak_pdf.php              # Controller & renderer dokumen laporan PDF (FPDF)
-├── database.sql               # Skrip DDL struktur database & tabel
-├── edit.php                   # Formulir & proses pembaruan data barang
-├── hapus.php                  # Endpoint pemrosesan penghapusan data barang (metode POST)
-├── index.php                  # Dasbor utama & ringkasan metrik statistik inventaris
-├── laporan.php                # Pratinjau tabel rekapitulasi data aset sebelum cetak
-├── login.php                  # Formulir login pengguna & verifikasi password hash
-├── logout.php                 # Endpoint penghancuran sesi aman (metode POST)
-├── register.php               # Formulir registrasi akun asesi/pengguna baru
-├── tambah.php                 # Formulir penambahan data barang baru
-└── README.md                  # Dokumentasi resmi pengujian untuk Asesor LSP
+│   ├── header.php                 # Header & navigasi responsif
+│   └── footer.php                 # Footer & proteksi double-submit
+├── barang.php                     # Halaman tabel data barang & pencarian
+├── cetak_pdf.php                  # Modul generate laporan PDF
+├── edit.php                       # Form ubah data barang
+├── hapus.php                      # Proses hapus barang (metode POST)
+├── index.php                      # Dashboard ringkasan statistik barang
+├── laporan.php                    # Halaman pratinjau laporan rekapitulasi
+├── login.php                      # Halaman masuk pengguna
+├── logout.php                     # Proses keluar sistem (metode POST)
+├── register.php                   # Halaman registrasi akun baru
+├── tambah.php                     # Form tambah data barang
+└── README.md                      # Dokumentasi teknis proyek
 ```
 
 ---
 
-## 4. Panduan Instalasi & Konfigurasi Lingkungan (XAMPP)
+## 4. Panduan Instalasi & Konfigurasi (XAMPP)
 
-### Prasyarat Sistem
-- XAMPP for Windows (PHP versi 8.0 ke atas, Apache, MariaDB/MySQL).
-- Web browser modern (Google Chrome, Mozilla Firefox, atau Microsoft Edge).
+### Prasyarat
+- XAMPP (Apache & MySQL aktif)
+- Web browser (Chrome, Firefox, atau Edge)
 
-### Langkah 1: Penempatan Berkas Proyek
-1. Pastikan layanan Apache dan MySQL pada **XAMPP Control Panel** dalam status aktif (*Running*).
-2. Salin folder proyek `crud_barang` ke direktori web root XAMPP:
+### Langkah 1: Penempatan Folder Proyek
+1. Pastikan Apache dan MySQL di XAMPP Control Panel berstatus **Running**.
+2. Tempatkan folder proyek di direktori htdocs:
    ```text
    C:\xampp\htdocs\crud_barang
    ```
 
-### Langkah 2: Pembuatan & Import Database
-Basis data dapat diimpor menggunakan phpMyAdmin atau antarmuka baris perintah (CLI).
+### Langkah 2: Import Database (Sekali Klik)
+Skrip database sudah dilengkapi instruksi `CREATE DATABASE IF NOT EXISTS` dan `USE db_inventaris_barang`. Anda cukup mengimpor satu berkas SQL:
 
-#### Opsi A: Melalui phpMyAdmin (Antarmuka Web)
-1. Buka browser dan akses alamat: `http://localhost/phpmyadmin`.
-2. Klik menu **Databases** (Basis Data).
-3. Buat database baru dengan nama `db_inventaris_barang`, pilih collation `utf8mb4_unicode_ci`, lalu klik **Create**.
-4. Pilih database `db_inventaris_barang` yang baru dibuat di panel kiri.
-5. Klik tab **Import** pada menu atas.
-6. Klik tombol **Choose File**, arahkan ke file di dalam folder `database/`:
+#### Opsi A: Lewat phpMyAdmin
+1. Buka browser ke `http://localhost/phpmyadmin`.
+2. Klik tab **Import** pada menu utama atas.
+3. Klik tombol **Choose File**, pilih file:
    ```text
-   C:\xampp\htdocs\crud_barang\database\database.sql
+   C:\xampp\htdocs\crud_barang\database\db_inventaris_barang.sql
    ```
-   *(atau `database.sql` di root direktori).*
-7. Gulir ke bawah dan klik tombol **Import** (Kirim). Pastikan muncul konfirmasi bahwa query berhasil dieksekusi.
+4. Klik tombol **Import** di bagian bawah. Database dan tabel otomatis terpasang.
 
-#### Opsi B: Melalui Terminal / MySQL Command Prompt
-Jalankan perintah berikut pada terminal PowerShell atau Command Prompt:
+#### Opsi B: Lewat Terminal / Command Prompt
+Jalankan satu perintah berikut:
 ```bash
-mysql -u root -e "CREATE DATABASE IF NOT EXISTS db_inventaris_barang DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-mysql -u root db_inventaris_barang < "C:\xampp\htdocs\crud_barang\database.sql"
+mysql -u root < "C:\xampp\htdocs\crud_barang\database\db_inventaris_barang.sql"
 ```
 
-### Langkah 3: Verifikasi Konfigurasi Koneksi
-Buka file `config/database.php` untuk memastikan parameter koneksi sesuai dengan konfigurasi bawaan XAMPP:
+### Langkah 3: Konfigurasi Koneksi Database
+Konfigurasi koneksi di file `config/database.php` menggunakan setelan default XAMPP:
 ```php
 $db_host = 'localhost';
 $db_name = 'db_inventaris_barang';
 $db_user = 'root';
-$db_pass = ''; // Default XAMPP tidak menggunakan password
+$db_pass = ''; // Default XAMPP kosong
 ```
 
 ### Langkah 4: Mengakses Aplikasi
